@@ -30,9 +30,11 @@ body {
 .viewer-panel {
   width: 50%;
 }
-.viewer-panel .player .vid {
-  height: 100%;
-  width: 100%;
+.viewer-panel .container {
+  height: 90%;
+  max-height: 675px;
+  position: sticky;
+  top: 40px;
 }
 .viewer-panel .controls {
   display: flex;
@@ -162,6 +164,10 @@ body {
 .player video {
   width: 100%;
   height: 100%;
+}
+.player .vid {
+  height: 100%;
+  width: 100%;
 }
 
 .IC-selector {
