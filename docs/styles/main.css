@@ -32,7 +32,7 @@ body {
 }
 .viewer-panel .container {
   height: 90%;
-  max-height: 675px;
+  max-height: 606px;
   position: sticky;
   top: 40px;
 }
