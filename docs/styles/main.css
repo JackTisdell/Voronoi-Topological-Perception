@@ -23,6 +23,10 @@ h2 {
   font-size: 14pt;
 }
 
+.help-text {
+  color: #666666;
+}
+
 body {
   background: #EEE;
 }
