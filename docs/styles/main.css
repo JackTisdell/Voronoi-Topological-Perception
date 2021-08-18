@@ -25,6 +25,7 @@ h2 {
 
 .help-text {
   color: #666666;
+  max-width: 400px;
 }
 
 body {
