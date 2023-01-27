@@ -1,0 +1,1 @@
+function arrayToCSV(e,t,a){const d=Papa.unparse({fields:t,data:e}),n=new Blob([d],{type:"text/csv;charset=utf-8;"}),o=document.createElement("a");o.href=window.URL.createObjectURL(n),o.download=a+".csv",o.style.display="none",document.body.appendChild(o),o.click(),document.body.removeChild(o)}

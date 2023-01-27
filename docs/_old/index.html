@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VTP gallery</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css"><link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+<link rel="manifest" href="/img/favicons/site.webmanifest">
+<link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+  </head>
+  <body>
+    <div class="container">
+      <h1>VTP movie gallery</h1>
+      <div class="panels">
+        <div class="selection-panel">
+          <div class="help-text">
+            <p><span class="icon-question"></span> Select one option from each field below</p>
+          </div>
+          <div class="field-dom">
+            <h2>Domain</h2>
+            <form class="button-row" id="dom-selector">
+              <input type="radio" id="torus" value="torus" name="man"/>
+              <label for="torus">torus</label>
+              <input type="radio" id="sphere" value="sphere" name="man"/>
+              <label for="sphere">sphere</label>
+              <input type="radio" id="corridor" value="corridor" name="man"/>
+              <label for="corridor">corridor*</label>
+            </form>
+          </div>
+          <div class="field-targets">
+            <h2>Targets</h2>
+            <form class="button-row" id="target-selector">
+              <input type="radio" id="untargeted" value="0" name="targ"/>
+              <label for="untargeted">none</label>
+              <input type="radio" id="target1" value="1" name="targ"/>
+              <label for="target1">1 point</label>
+              <input type="radio" id="target2" value="2" name="targ"/>
+              <label for="target2">2 points</label>
+              <input type="radio" id="target3" value="3" name="targ"/>
+              <label for="target3">3 points</label>
+            </form>
+          </div>
+          <div class="field-n">
+            <h2>Number of agents \(n\)</h2>
+            <div class="slide-container">
+              <input class="slider" type="range" min="150" max="600" step="150" value="300" id="nslide">
+              <div class="label-container">
+                <div class="label"></div>
+              </div>
+            </div>
+          </div>
+          <div class="field-influx">
+            <h2>Influx</h2>
+            <form class="button-row" id="influx-selector">
+              <input type="radio" id="light" value="light" name="influx"/>
+              <label for="light">light</label>
+              <input type="radio" id="moderate" value="moderate" name="influx"/>
+              <label for="moderate">moderate</label>
+              <input type="radio" id="heavy" value="heavy" name="influx"/>
+              <label for="heavy">heavy</label>
+            </form>
+          </div>
+          <div class="field-nu">
+            <h2>Alignment strength \(\nu\)</h2>
+            <form class="button-row" id="nu-selector">
+              <input type="radio" id="nu1" value="1" name="nu"/>
+              <label for="nu1">1</label>
+              <input type="radio" id="nu2" value="2" name="nu"/>
+              <label for="nu2">2</label>
+            </form>
+          </div>
+          <div class="field-ic">
+            <h2>Initial conditions</h2>
+            <div class="IC-selector">
+              <div class="IC-option" data-selected="false" data-spec="UU"><img src="img/IC-thumbs/UU.png"/>
+                <div class="caption">uniformly distributed position and direction</div>
+              </div>
+              <div class="IC-option" data-selected="false" data-spec="UC"><img src="img/IC-thumbs/UC.png"/>
+                <div class="caption">uniformly distributed position, constant direction</div>
+              </div>
+              <!--+IC-option('CU.png', 'CU', 'clustered, uniformly distributed direction')-->
+              <!--+IC-option('CC.png', 'CC', 'clustered, constant direction')-->
+              <!--+IC-option('opp.png', 'OF', 'opposing fronts')-->
+            </div>
+          </div>
+          <div class="field-params">
+            <h2>Control parameters</h2>
+            <p class="help-text"><span class="icon-question"></span> After selecting the above options, select a pin below to view simulation</p>
+            <div class="parameter-widget">
+              <div class="xlabel">density-repulsion \(\mu\)</div>
+              <div class="ylabel">alignment strength \(\nu\)</div>
+              <div class="xticks">
+                <div class="xtick"></div>
+                <div class="xtick"></div>
+                <div class="xtick"></div>
+                <div class="xtick"></div>
+                <div class="xtick"></div>
+              </div>
+              <div class="yticks">
+                <div class="ytick"></div>
+                <div class="ytick"></div>
+                <div class="ytick"></div>
+                <div class="ytick"></div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="1" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="1" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="2" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="1" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="2" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="0.5" data-selected="false" data-cond="0T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 0.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="1" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="1" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="2" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="1" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="2" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="0.5" data-selected="false" data-cond="0T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 0.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="1" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="1" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="2" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="1" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="2" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="0.5" data-selected="false" data-cond="0T_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 0.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="1" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="1" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="2" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="1" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="2" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="0.5" data-selected="false" data-cond="0T_150_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 0.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2.5" data-selected="false" data-cond="1T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.35" data-nu="3" data-selected="false" data-cond="1T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.35\\\nu &= 3\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.52" data-nu="3" data-selected="false" data-cond="1T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.52\\\nu &= 3\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.35" data-nu="3" data-selected="false" data-cond="1T_450_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.35\\\nu &= 3\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.3" data-nu="2" data-selected="false" data-cond="2T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.3\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="2T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2.5" data-selected="false" data-cond="3T_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="1" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="1" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.73" data-nu="2" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.73\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="1" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 1\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="3.46" data-nu="2" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 3.46\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="0.5" data-selected="false" data-cond="0S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 0.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2.5" data-selected="false" data-cond="1S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.35" data-nu="3" data-selected="false" data-cond="1S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.35\\\nu &= 3\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.52" data-nu="3" data-selected="false" data-cond="1S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.52\\\nu &= 3\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.3" data-nu="2" data-selected="false" data-cond="2S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.3\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2" data-selected="false" data-cond="2S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="0.87" data-nu="2.5" data-selected="false" data-cond="3S_300_UU">
+                <div class="label">\(\begin{aligned}\mu &= 0.87\\\nu &= 2.5\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.23" data-nu="2" data-selected="false" data-cond="0S_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.23\\\nu &= 2\end{aligned}\)</div>
+              </div>
+              <div class="node" data-mu="1.23" data-nu="2" data-selected="false" data-cond="1S_600_UU">
+                <div class="label">\(\begin{aligned}\mu &= 1.23\\\nu &= 2\end{aligned}\)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="viewer-panel">
+          <div class="container">
+            <div class="player">
+              <p>Select options to view simulation</p>
+            </div>
+            <div class="controls">
+              <div class="left">
+                <div class="legend">
+                  <div class="colorbar"></div>
+                  <div class="ticks">
+                    <div class="tick">\(\tfrac34\)</div>
+                    <div class="tick">\(1\)</div>
+                    <div class="tick">\(\tfrac32\)</div>
+                    <div class="tick">\(3\)</div>
+                    <div class="tick">\(\infty\)</div>
+                  </div>
+                  <div class="label">\(\tfrac{n\lvert V_i\rvert}{\lvert\Omega\rvert}\)</div>
+                </div>
+              </div>
+              <div class="right">
+                <div class="share-button">copy link</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="scripts/jquery-3.6.0.min.js"></script>
+<script src="scripts/main-min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
