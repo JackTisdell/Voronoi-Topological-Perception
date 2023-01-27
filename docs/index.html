@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VTP browser implementation v1</title>
+    <title>VTP browser v1</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="papaparse.min.js"></script>
     <script src="util-min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="VTPState-min.js"></script>
     <script src="vtp_dynamics-min.js"></script>
     <!--script(src='sketch-min.js')-->
   </head>
   <body>
-    <progess min="0" max="100" id="progressbar"></progess>
-    <canvas id="canvas" width="1200" height="1200"></canvas>
-    <div id="treadout">0</div>
-    <div class="controls">
-      <label id="playbutton" for="startstop">Play</label>
-      <input id="startstop" type="checkbox">
-      <div id="zoomin">+</div>
-      <div id="zoomout">-</div><br>
-      <input id="slider" type="range" min="0" max="30" step=".01">
-      <div id="nureadout"></div><br>
-      <form id="testform">
-        <input id="textinput" type="text">
-        <div id="submit">GO</div>
-      </form><br>
-      <div id="export">export</div><br>
-      <div id="Pol">pol</div>
-      <div id="L">L</div>
-      <div id="Labs">Labs</div>
-      <div id="P">P</div>
-      <div id="rmed">rmed</div>
-      <div id="r2P">rmed2*P</div>
-      <div id="triArea">triArea</div>
-    </div>
-    <div id="d3copyright">
-      <p>Copyright 2018-2021 Observable, Inc.<br>Copyright 2021 Mapbox</p>
-      <p>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</p>
-      <p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+    <div class="container">
+      <div class="flexbox">
+        <div class="panel-display">
+          <canvas id="canvas" width="1200" height="1200"></canvas>
+          <div id="treadout">0</div>
+        </div>
+        <div class="panel-control">
+          <div class="controls"> 
+            <div id="playbutton">
+              <input type="checkbox" id="playbutton-cb">
+              <label for="playbutton-cb"></label>
+            </div>
+            <div class="zoom">
+              <div id="zoomout">zoom out &minus;</div>
+              <div id="zoomin">zoom in &plus;</div>
+            </div>
+            <div class="input-N">
+              <div class="title">number of agents \(N\):</div>
+              <form onsubmit="return false" id="nForm">
+                <input type="text" id="textField-N">
+              </form>
+            </div>
+            <div class="input-nu">
+              <div class="title">alignment strength \(\nu\):</div>
+              <form onsubmit="return false" id="alignmentStrengthForm">
+                <input type="text" id="textField-nu">
+              </form>
+            </div>
+            <div id="export">export frame &darr;</div>
+          </div>
+        </div>
+      </div>
+      <div id="d3copyright">
+        <p>Usage of the d3-delaunay javascript library is subject to the following copyright statement</p>
+        <p>Copyright 2018-2021 Observable, Inc.<br>Copyright 2021 Mapbox</p>
+        <p>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</p>
+        <p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+      </div>
     </div>
   </body>
 </html>
