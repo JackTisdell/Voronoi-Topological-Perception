@@ -76,6 +76,45 @@ div[class^=input-] input {
   text-align: right;
 }
 
+.model-toggle {
+  margin: 30px 0;
+}
+.model-toggle input {
+  display: none;
+}
+.model-toggle input:checked ~ label .switch {
+  transform: translateX(20px);
+}
+.model-toggle label {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.model-toggle .switch-label-container {
+  width: 80px;
+  display: flex;
+  align-items: center;
+}
+.model-toggle .switch-container {
+  height: 20px;
+  width: 40px;
+  margin: 0 8px;
+  border: 2px solid #999;
+  border-radius: 12px;
+  background: #fff;
+}
+.model-toggle .switch {
+  display: block;
+  background: #222;
+  height: 100%;
+  width: 20px;
+  border-radius: 10px;
+  transition: 150ms transform ease;
+}
+
 #export {
   margin-top: 60px;
   display: block;
