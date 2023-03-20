@@ -1,8 +1,7 @@
-function P = voronoiPressure(DT,p)
+function P = voronoiPressure(DT)
 
 arguments
     DT delaunayTriangulation
-    p (1,1) double = 1
 end
 
 P = 0;
@@ -17,7 +16,7 @@ for i = 1:N
     if isnan(A)
         A = Inf;
     end
-    P = P+1/A^p;
+    P = P+1/A;
 end
 
-P = P^(1/p);
+P = P/N;
