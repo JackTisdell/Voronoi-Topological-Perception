@@ -24,13 +24,14 @@
         </div>
         <div class="panel-control">
           <div class="controls"> 
-            <div id="playbutton">
+            <div class="play">
               <input type="checkbox" id="playbutton-cb">
-              <label for="playbutton-cb"></label>
+              <label class="button" id="playbutton" for="playbutton-cb"></label>
+              <div class="button" id="skipbutton"></div>
             </div>
             <div class="zoom">
-              <div id="zoomout">zoom out &minus;</div>
-              <div id="zoomin">zoom in &plus;</div>
+              <div class="button" id="zoomout">zoom out &minus;</div>
+              <div class="button" id="zoomin">zoom in &plus;</div>
             </div>
             <div class="model-toggle">
               <input type="checkbox" checked id="modeltoggle-cb">
@@ -57,7 +58,7 @@
                 <input type="text" id="textField-nu">
               </form>
             </div>
-            <div id="export">export frame &darr;</div>
+            <div class="button" id="export">export frame &darr;</div>
           </div>
         </div>
       </div>

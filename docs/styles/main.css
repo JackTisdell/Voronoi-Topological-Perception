@@ -28,17 +28,32 @@ body {
   max-width: 800px;
 }
 
-#playbutton label {
-  background: #222;
-  cursor: pointer;
-  color: whitesmoke;
+.button {
   display: block;
-  width: 80px;
+  cursor: pointer;
   line-height: 4ex;
   text-align: center;
+  color: whitesmoke;
 }
-#playbutton label:after {
-  content: "Play ‣";
+
+.play {
+  display: flex;
+}
+.play * {
+  background: #222;
+  width: 80px;
+  margin-right: 4px;
+}
+
+#playbutton {
+  width: 80px;
+}
+#playbutton:after {
+  content: "Run ‣";
+}
+
+#skipbutton:after {
+  content: "+100 ‣‣";
 }
 
 #playbutton-cb {
@@ -55,11 +70,7 @@ body {
 }
 .zoom div {
   background: #777;
-  color: whitesmoke;
-  cursor: pointer;
-  line-height: 4ex;
   width: 100px;
-  text-align: center;
   margin-right: 4px;
 }
 
@@ -117,13 +128,8 @@ div[class^=input-] input {
 
 #export {
   margin-top: 60px;
-  display: block;
   width: 130px;
   background: #222;
-  color: whitesmoke;
-  cursor: pointer;
-  text-align: center;
-  line-height: 4ex;
 }
 
 #d3copyright {
