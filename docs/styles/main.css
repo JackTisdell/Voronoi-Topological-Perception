@@ -132,6 +132,11 @@ div[class^=input-] input {
   background: #222;
 }
 
+#target-options * {
+  line-height: 3ex;
+  text-decoration: underline;
+}
+
 #d3copyright {
   margin-top: 80px;
   font-size: 12px;
