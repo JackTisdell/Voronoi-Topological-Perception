@@ -20,7 +20,13 @@
       <div class="flexbox">
         <div class="panel-display">
           <canvas id="canvas" width="1200" height="1200"></canvas>
-          <div id="treadout">0</div>
+          <div class="info">
+            <div id="treadout">0</div>
+            <div class="params">
+              <div class="line">\(N\) = <span id="Nreadout">400</span></div>
+              <div class="line">\(\nu\) = <span id="nureadout">4</span></div>
+            </div>
+          </div>
         </div>
         <div class="panel-control">
           <div class="controls"> 
@@ -50,12 +56,14 @@
               <div class="title">number of agents \(N\):</div>
               <form onsubmit="return false" id="nForm">
                 <input type="text" id="textField-N">
+                <div class="prompt"></div>
               </form>
             </div>
             <div class="input-nu">
               <div class="title">alignment strength \(\nu\):</div>
               <form onsubmit="return false" id="alignmentStrengthForm">
                 <input type="text" id="textField-nu">
+                <div class="prompt"></div>
               </form>
             </div>
             <div class="button" id="export">export frame &darr;</div>
