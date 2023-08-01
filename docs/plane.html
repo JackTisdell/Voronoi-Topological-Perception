@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VTP explorer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="papaparse.min.js"></script>
+    <script src="util-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="VTPState-min.js"></script>
+    <script src="vtp_dynamics-min.js"></script>
+    <!--script(src='sketch-min.js')-->
+  </head>
+  <body id="page-plane">
+    <div class="container">
+      <nav><a href="/">about</a><a href="/plane.html">web VTP (plane)</a><a href="/corridor.html">bi-directional corridor</a><a href="/compact.html">torus & sphere</a></nav>
+      <div class="fade"></div>
+      <h1>web VTP</h1>
+      <div class="flexbox">
+        <div class="panel-display">
+          <canvas id="canvas" width="1200" height="1200"></canvas>
+          <div class="info">
+            <div id="treadout">0</div>
+            <div class="params">
+              <div class="line">\(N\) = <span id="Nreadout">400</span></div>
+              <div class="line">\(\nu\) = <span id="nureadout">4</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-control">
+          <div class="controls"> 
+            <div class="play">
+              <input type="checkbox" id="playbutton-cb">
+              <label class="button" id="playbutton" for="playbutton-cb"></label>
+              <div class="button" id="skipbutton"></div>
+            </div>
+            <div class="zoom">
+              <div class="button" id="zoomout">zoom out &minus;</div>
+              <div class="button" id="zoomin">zoom in &plus;</div>
+            </div>
+            <div class="model-toggle">
+              <input type="checkbox" checked id="modeltoggle-cb">
+              <label for="modeltoggle-cb">
+                <div class="text">model I / II</div>
+                <div class="switch-label-container">
+                  <div class="left">I</div>
+                  <div class="switch-container">
+                    <div class="switch"></div>
+                  </div>
+                  <div class="right">II</div>
+                </div>
+              </label>
+            </div>
+            <div class="input-N">
+              <div class="title">number of agents \(N\):</div>
+              <form onsubmit="return false" id="nForm">
+                <input type="text" id="textField-N">
+                <div class="prompt"></div>
+              </form>
+            </div>
+            <div class="input-nu">
+              <div class="title">alignment strength \(\nu\):</div>
+              <form onsubmit="return false" id="alignmentStrengthForm">
+                <input type="text" id="textField-nu">
+                <div class="prompt"></div>
+              </form>
+            </div>
+            <div class="button" id="export">export frame &darr;</div>
+          </div>
+        </div>
+      </div>
+      <div class="demos">
+        <h3>Demo target configurations</h3>
+        <div id="target-options">
+          <div id="single-point">single point</div>
+          <div id="segment">line segment target</div>
+          <div id="cross">crossing segments (two subpopulations)</div>
+          <div id="ngon">pentagon</div>
+          <div id="nested-squares">nested squares (two subpopulations)</div>
+        </div>
+      </div>
+      <div id="d3copyright">
+        <p>Usage of the d3-delaunay javascript library is subject to the following copyright statement</p>
+        <p>Copyright 2018-2021 Observable, Inc.<br>Copyright 2021 Mapbox</p>
+        <p>Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.</p>
+        <p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+      </div>
+    </div>
+  </body>
+</html>
