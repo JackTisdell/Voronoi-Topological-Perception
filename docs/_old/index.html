@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>VTP explorer</title>
+    <title>VTP gallery</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles/main.css"><link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
@@ -17,23 +17,25 @@
     <div class="container">
       <nav><a href="index.html">about</a><a href="plane.html">web VTP (plane)</a><a href="corridor.html">bi-directional corridor</a><a href="compact.html">torus & sphere</a></nav>
       <div class="fade"></div>
-      <h1>torus and sphere</h1>
+      <h1>VTP movie gallery</h1>
       <div class="panels">
         <div class="selection-panel">
           <div class="help-text">
             <p><span class="icon-question"></span> Select one option from each field below</p>
           </div>
           <div class="field-dom">
-            <h3>Domain</h3>
+            <h2>Domain</h2>
             <form class="button-row" id="dom-selector">
               <input type="radio" id="torus" value="torus" name="man"/>
               <label for="torus">torus</label>
               <input type="radio" id="sphere" value="sphere" name="man"/>
               <label for="sphere">sphere</label>
+              <input type="radio" id="corridor" value="corridor" name="man"/>
+              <label for="corridor">corridor*</label>
             </form>
           </div>
           <div class="field-targets">
-            <h3>Targets</h3>
+            <h2>Targets</h2>
             <form class="button-row" id="target-selector">
               <input type="radio" id="untargeted" value="0" name="targ"/>
               <label for="untargeted">none</label>
@@ -46,7 +48,7 @@
             </form>
           </div>
           <div class="field-n">
-            <h3>Number of agents \(n\)</h3>
+            <h2>Number of agents \(n\)</h2>
             <div class="slide-container">
               <input class="slider" type="range" min="150" max="600" step="150" value="300" id="nslide">
               <div class="label-container">
@@ -55,7 +57,7 @@
             </div>
           </div>
           <div class="field-influx">
-            <h3>Influx</h3>
+            <h2>Influx</h2>
             <form class="button-row" id="influx-selector">
               <input type="radio" id="light" value="light" name="influx"/>
               <label for="light">light</label>
@@ -66,7 +68,7 @@
             </form>
           </div>
           <div class="field-nu">
-            <h3>Alignment strength \(\nu\)</h3>
+            <h2>Alignment strength \(\nu\)</h2>
             <form class="button-row" id="nu-selector">
               <input type="radio" id="nu1" value="1" name="nu"/>
               <label for="nu1">1</label>
@@ -74,18 +76,22 @@
               <label for="nu2">2</label>
             </form>
           </div>
-          <!--.field-ic
-          h2 Initial conditions
-          .IC-selector
-            +IC-option('UU.png', 'UU', 'uniformly distributed position and direction')
-            +IC-option('UC.png', 'UC', 'uniformly distributed position, constant direction')
-            //+IC-option('CU.png', 'CU', 'clustered, uniformly distributed direction')
-            //+IC-option('CC.png', 'CC', 'clustered, constant direction')
-            //+IC-option('opp.png', 'OF', 'opposing fronts')
-          
-          -->
+          <div class="field-ic">
+            <h2>Initial conditions</h2>
+            <div class="IC-selector">
+              <div class="IC-option" data-selected="false" data-spec="UU"><img src="img/IC-thumbs/UU.png"/>
+                <div class="caption">uniformly distributed position and direction</div>
+              </div>
+              <div class="IC-option" data-selected="false" data-spec="UC"><img src="img/IC-thumbs/UC.png"/>
+                <div class="caption">uniformly distributed position, constant direction</div>
+              </div>
+              <!--+IC-option('CU.png', 'CU', 'clustered, uniformly distributed direction')-->
+              <!--+IC-option('CC.png', 'CC', 'clustered, constant direction')-->
+              <!--+IC-option('opp.png', 'OF', 'opposing fronts')-->
+            </div>
+          </div>
           <div class="field-params">
-            <h3>Control parameters</h3>
+            <h2>Control parameters</h2>
             <p class="help-text"><span class="icon-question"></span> After selecting the above options, select a pin below to view simulation</p>
             <div class="parameter-widget">
               <div class="xlabel">density-repulsion \(\mu\)</div>
@@ -285,7 +291,7 @@
     </div>
   </body>
 </html>
-<script src="/jquery-3.6.0.min.js"></script>
-<script src="/compact-min.js"></script>
+<script src="scripts/jquery-3.6.0.min.js"></script>
+<script src="scripts/main-min.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
