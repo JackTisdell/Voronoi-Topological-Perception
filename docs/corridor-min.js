@@ -1,0 +1,1 @@
+function getParamsFromURL(){const e=window.location.search,n=new URLSearchParams(e),t=parseInt(n.get("idx")),I=["","I","II","III","IV","V","VI","VII"];if(t>=1&&t<=7){document.getElementById(I[t]).scrollIntoView()}}$(document).ready((function(){getParamsFromURL()}));
