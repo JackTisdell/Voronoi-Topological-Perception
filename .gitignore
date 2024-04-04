@@ -79,6 +79,6 @@ octave-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/codekit,macos,matlab
 
-**.swp
+*.swp
 *.mat
 source/
